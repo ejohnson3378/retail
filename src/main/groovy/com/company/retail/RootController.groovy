@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 class RootController {
 
-    @GetMapping('/')
-    String index() {
-        return 'Hello from the retail API!'
-    }
+  @GetMapping('/')
+  String index() {
+    return 'Hello from the retail API!'
+  }
 }

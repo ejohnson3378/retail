@@ -7,11 +7,11 @@ import org.springframework.data.redis.core.RedisHash
 @RedisHash
 class Price {
 
-    @Id
-    @JsonIgnore
-    String id
+  @Id
+  @JsonIgnore
+  String id
 
-    String value
+  String value
 
-    String currency_code
+  String currency_code
 }

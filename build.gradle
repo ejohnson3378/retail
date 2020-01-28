@@ -1,3 +1,11 @@
+
+buildscript {
+	dependencies {
+		classpath "org.springframework.boot:spring-boot-gradle-plugin:2.2.4.RELEASE"
+		classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.0'
+	}
+}
+
 plugins {
 	id 'org.springframework.boot' version '2.2.4.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
@@ -24,11 +32,16 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-redis-reactive'
 	implementation 'org.codehaus.groovy:groovy'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.codehaus.groovy:groovy-all:2.5.8'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	testImplementation('org.springframework.boot:spring-boot-starter-test') {
-		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-	}
+
+	testImplementation 'org.springframework:spring-test'
 	testImplementation 'io.projectreactor:reactor-test'
+	testImplementation platform("org.spockframework:spock-bom:2.0-M1-groovy-2.5")
+	testImplementation 'org.spockframework:spock-core'
+	testImplementation 'org.spockframework:spock-junit4'
+
+	testRuntime 'net.bytebuddy:byte-buddy:1.9.3'
 }
 
 bootRun {
@@ -37,7 +50,9 @@ bootRun {
 	systemProperty 'spring.profiles.active', "${systemProperties['spring.profiles.active']?: 'dev'},local"
 }
 
-
 test {
 	useJUnitPlatform()
+	testLogging {
+		events "passed", "skipped", "failed"
+	}
 }

@@ -12,15 +12,15 @@ import java.time.Duration
 @Configuration
 class RestConfig {
 
-    @Autowired
-    RestTemplateBuilder restTemplateBuilder
+  @Autowired
+  RestTemplateBuilder restTemplateBuilder
 
-    @Bean
-    RestTemplate webRestTemplate() {
-        return restTemplateBuilder
-                .setConnectTimeout(Duration.ofMillis(10000)) //could be externally configured
-                .setReadTimeout(Duration.ofMillis(10000))
-                .build()
-    }
+  @Bean
+  RestTemplate webRestTemplate() {
+    return restTemplateBuilder
+      .setConnectTimeout(Duration.ofMillis(10000)) //could be externally configured
+      .setReadTimeout(Duration.ofMillis(10000))
+      .build()
+  }
 
 }

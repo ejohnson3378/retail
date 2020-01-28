@@ -16,19 +16,19 @@ import java.util.concurrent.Executor
 @EnableAsync
 class RetailApplication {
 
-    static void main(String[] args) {
-        SpringApplication.run(RetailApplication, args)
-    }
+  static void main(String[] args) {
+    SpringApplication.run(RetailApplication, args)
+  }
 
-    @Bean
-    Executor taskExecutor() {
-        ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor()
-        executor.setCorePoolSize(10)
-        executor.setMaxPoolSize(10)
-        executor.setQueueCapacity(500)
-        executor.setThreadNamePrefix('ProductCall-')
-        executor.initialize()
-        return executor
-    }
+  @Bean
+  Executor taskExecutor() {
+    ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor()
+    executor.setCorePoolSize(10)
+    executor.setMaxPoolSize(10)
+    executor.setQueueCapacity(500)
+    executor.setThreadNamePrefix('ProductCall-')
+    executor.initialize()
+    return executor
+  }
 
 }

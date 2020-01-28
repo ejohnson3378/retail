@@ -13,20 +13,22 @@ import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
+import javax.validation.Valid
+
 @RestController
 @RequestMapping('/product')
 class ProductController {
 
-    @Autowired
-    ProductService productService
+  @Autowired
+  ProductService productService
 
-    @GetMapping('/{id}')
-    ResponseEntity<Product> getProductById(@PathVariable String id){
-        return new ResponseEntity<Product>(productService.getProductWithPrice(id),HttpStatus.OK)
-    }
+  @GetMapping('/{id}')
+  ResponseEntity<Product> getProductById(@PathVariable String id) {
+    return new ResponseEntity<Product>(productService.getProductWithPrice(id), HttpStatus.OK)
+  }
 
-    @PutMapping('/{id}')
-    ResponseEntity setProductPrice(@PathVariable String id, @RequestBody Product product){
-        return new ResponseEntity(productService.setProductPrice(id, product),HttpStatus.ACCEPTED)
-    }
+  @PutMapping('/{id}')
+  ResponseEntity setProductPrice(@PathVariable String id, @RequestBody Product product) {
+    return new ResponseEntity(productService.setProductPrice(id, product), HttpStatus.CREATED)
+  }
 }
