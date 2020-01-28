@@ -36,15 +36,15 @@ class ProductService {
     return currProduct
   }
 
-  void setProductPrice(String id, Product product) {
-    if (!product ||
-      !product.current_price ||
-      !product.current_price.value || product.current_price.currency_code) throw new BadRequestException(message: "product must contain price and currency code",
+  void setProductPrice(String id, Price price) {
+    if (!price || !price.value || !price.currency_code) throw new BadRequestException(message: "must contain price and currency code",
       status: HttpStatus.BAD_REQUEST)
+
+    //could do some price validation here - make sure its a number, non-negative...etc
     Price newPrice = new Price(
       id: id,
-      value: product.current_price.value,
-      currency_code: product.current_price.currency_code
+      value: price.value,
+      currency_code: price.currency_code
     )
     priceRepository.save(newPrice)
     log.info("new price ${newPrice.value} has been set for item ${newPrice.id}")

@@ -43,7 +43,7 @@ class ProductControllerTest extends Specification {
 
   def 'PUT /product/{id} will return a 201'() {
     when:
-    def response = productController.setProductPrice('123456', product)
+    def response = productController.setProductPrice('123456', price)
 
     then:
     response.statusCode == HttpStatus.CREATED

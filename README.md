@@ -1,10 +1,10 @@
 ## Retail
 
-###Getting Started
+### Getting Started
 
 This is the myRetail API that combines noSQL price data with a live API.  It is built on [SpringBoot](https://spring.io/projects/spring-boot) + Groovy for easy coding
 
-####Dev Setup
+#### Dev Setup
 
 install the noSQL DB
 
@@ -43,13 +43,13 @@ curl -X GET \
   -H 'postman-token: a802efda-cbc4-a74d-30b1-c151ccf80d33'
 ```
 
-###Testing
+### Testing
 
 Testing with [Spock](http://spockframework.org/)
 
 ```./gradlew test```
 
-###Configuration
+### Configuration
 
  There is an `application-dev.yml` file in `src/main/resources` that contains the product URL and exclusions. 
  This application is only set to boot in the dev profile

@@ -28,7 +28,7 @@ class ProductController {
   }
 
   @PutMapping('/{id}')
-  ResponseEntity setProductPrice(@PathVariable String id, @RequestBody Product product) {
-    return new ResponseEntity(productService.setProductPrice(id, product), HttpStatus.CREATED)
+  ResponseEntity setProductPrice(@PathVariable String id, @RequestBody Price price) {
+    return new ResponseEntity(productService.setProductPrice(id, price), HttpStatus.CREATED)
   }
 }
