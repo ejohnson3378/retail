@@ -4,7 +4,7 @@
 
 This is the myRetail API that combines noSQL price data with a live API.  It is built on [SpringBoot](https://spring.io/projects/spring-boot) + Groovy for easy coding
 
-#### Dev Setup
+### Dev Setup
 
 install the noSQL DB
 
@@ -21,6 +21,8 @@ Clone the code
 Start the App
 
 ```./gradlew bootRun```
+
+If you don't have permission to execute, run `chmod +x gradlew` to give yourself execute rights
 
 You might want to load Redis with price data by using the PUT endpoint. Use the example below for the correct PUT body.
 
